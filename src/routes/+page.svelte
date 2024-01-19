@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import IndicatorCard from "$lib/components/IndicatorCard.svelte"
+  import { indicators } from "$lib/data/stores/global.ts"
+  console.log($indicators)
+</script>
+
+<div class="flex flex-row flex-wrap justify-center gap-6 p-8 px-16">
+  {#each Object.entries($indicators) as [, value]}
+    <IndicatorCard indicator={value} />
+  {/each}
+</div>
